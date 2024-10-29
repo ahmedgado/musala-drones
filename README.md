@@ -79,7 +79,7 @@ Core Services
         -       http://localhost:8080/drones/1/
 
     - Get available drone for shipment process (all drones in IDLE state)
-      
+
       http://localhost:8080/drones/get-available (GET)
 
     - Get all drones in db
@@ -89,59 +89,63 @@ Core Services
     - Delete drone (DELETE)
 
       http://localhost:8080/drones/{id}/
-      
+
         -          http://localhost:8080/drones/1/
-          
+
 - Medication
     - Save or update medication
-      - validations
-        - Medication name is mandatory.
-        - Medication name must be letters with _ or -.
-        - Medication code is mandatory.
-        - Medication code must be uppercase with _ or -.
-        
-       http://localhost:8080/medications/ (POST) - form data
-        
-        medication : "{   
-                 "name" : "Medication",
-                 "weight" : 90,
-                 "code" : "TK1"
-                     }"
+        - validations
+            - Medication name is mandatory.
+            - Medication name must be letters with _ or -.
+            - Medication code is mandatory.
+            - Medication code must be uppercase with _ or -.
+        -
+        -
+            - http://localhost:8080/medications/ (POST) - form data
+    -
+    medication : "{   
+    "name" : "Medication",
+    "weight" : 90,
+    "code" : "TK1"
+    }"
 
-        image : file (multipart)
-  
+    image : file (multipart)
+
     - Retrieve medication (image will be in binary)
-        http://localhost:8080/medications/{id} (GET)
-         -       http://localhost:8080/medications/1
-          
+      http://localhost:8080/medications/{id} (GET)
+        -       http://localhost:8080/medications/1
+
     - Retrieve all medications (image will be in binary)
-        http://localhost:8080/medications/ (GET)
+      http://localhost:8080/medications/ (GET)
 
     - Delete medication
-        http://localhost:8080/medications/{id} (DELETE)
+      http://localhost:8080/medications/{id} (DELETE)
 
 - Orders
-  - create order and start order
-    - http://localhost:8080/orders/save (POST)
-      {
-      "customerName": "Ahmed",
-      "droneId": 1,
-      "medicationId": 1,
-      "latitude": 42.6703217,
-      "longitude": 23.3484632,
-      }
-  
-  - get current running orders by drones
-    - http://localhost:8080/orders/getCurrentOrders (GET)
-  
-  - get all orders
-    - http://localhost:8080/orders/
+    - create order and start order
+
+        - http://localhost:8080/orders/save (POST)
+        -
+        {
+        "customerName": "Ahmed",
+        "droneId": 1,
+        "medicationId": 1,
+        "latitude": 42.6703217,
+        "longitude": 23.3484632
+        }
+
+    - get current running orders by drones
+
+        - http://localhost:8080/orders/getCurrentOrders (GET)
+
+    - get all orders
+
+        - http://localhost:8080/orders/
 
 - History
-  - Get all records created by cron job that log drones batteries every 1 min
-    - http://localhost:8080/history/getAll
 
-
+    - Get all records created by cron job that log drones batteries every 1 min
+        - http://localhost:8080/history/getAll
 
 
 - Properties
