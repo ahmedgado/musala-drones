@@ -144,11 +144,11 @@ Core Services
 
 
 
--   Properties
-    stock.location.latitude (drones stock location)
-    stock.location.longitude (drones stock location)
-    battery.cron.check.schedule= (interval time for cron job)
-    drone.battery.trip.limit=(drone battery limit for start order)
+- Properties
+    - stock.location.latitude (drones stock location)
+    - stock.location.longitude (drones stock location)
+    - battery.cron.check.schedule= (interval time for cron job)
+    - drone.battery.trip.limit=(drone battery limit for start order)
     
     
 
