@@ -3,6 +3,7 @@ package com.musalasoft.exam.drones.services;
 import Exceptions.BusinessException;
 import com.musalasoft.exam.drones.dto.OrderDto;
 import com.musalasoft.exam.drones.entities.Order;
+import com.musalasoft.exam.drones.enums.DroneState;
 import com.musalasoft.exam.drones.enums.OrderState;
 import com.musalasoft.exam.drones.repositories.DroneRepo;
 import com.musalasoft.exam.drones.repositories.OrderRepo;
@@ -59,6 +60,8 @@ public class OrderService {
         if (order.getDrone().getWeightLimit() > order.getMedication().getWeight()) {
            if(order.getDrone().getBatteryCapacity() <= droneBatteryTripLimit)
             throw new BusinessException("Drone's battery's capacity less than " + droneBatteryTripLimit + " % ,please charge it");
+           if(!order.getDrone().getDroneState().equals(DroneState.IDLE))
+               throw new BusinessException("Drone's no available to be used");
         }else {
             throw new BusinessException("Medication's weight greater than drone weight limit");
         }
